@@ -1,0 +1,27 @@
+description: Add a new field to reader with default
+check:
+  compatibility: "BACKWARD"
+  compatible: true
+schema:
+  type: "AVRO"
+  writer: |
+    { "namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "favorite_number", "type": ["int", "null"]},
+        {"name": "favorite_color", "type": ["string", "null"]}
+      ]
+    }
+  reader: |
+    { "namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "favorite_number", "type": ["int", "null"]},
+        {"name": "favorite_color", "type": ["string", "null"]},
+        {"name": "new_field", "type": "string", "default": "some default value"}
+      ]
+    }

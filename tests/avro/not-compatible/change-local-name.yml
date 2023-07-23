@@ -1,0 +1,26 @@
+description: Change local name
+check:
+  compatibility: "BACKWARD"
+  compatible: false
+schema:
+  type: "AVRO"
+  writer: |
+    { "namespace": "example.avro",
+      "type": "record",
+      "name": "UserV2",
+      "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "favorite_number", "type": ["long", "null"]},
+        {"name": "favorite_color", "type": ["string", "null"]}
+      ]
+    }
+  reader: |
+    { "namespace": "example.avro",
+      "type": "record",
+      "name": "UserV1",
+      "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "favorite_number", "type": ["int", "null"]},
+        {"name": "favorite_color", "type": ["string", "null"]}
+      ]
+    }

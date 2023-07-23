@@ -1,0 +1,26 @@
+description: Change namespace
+check:
+  compatibility: "BACKWARD"
+  compatible: false
+schema:
+  type: "AVRO"
+  writer: |
+    { "namespace": "example.avro.v2",
+      "type": "record",
+      "name": "User",
+      "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "favorite_number", "type": ["long", "null"]},
+        {"name": "favorite_color", "type": ["string", "null"]}
+      ]
+    }
+  reader: |
+    { "namespace": "example.avro.v1",
+      "type": "record",
+      "name": "User",
+      "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "favorite_number", "type": ["int", "null"]},
+        {"name": "favorite_color", "type": ["string", "null"]}
+      ]
+    }

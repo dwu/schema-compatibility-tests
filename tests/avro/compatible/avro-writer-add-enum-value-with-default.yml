@@ -1,0 +1,40 @@
+description: Add enum value to writer with default
+check:
+  compatibility: "BACKWARD"
+  compatible: true
+schema:
+  type: "AVRO"
+  writer: |
+    { "namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+        { "name": "name",
+          "type": "string" },
+        { "name": "favorite_color", 
+          "type": {
+            "type": "enum",
+            "name": "ColorEnum",
+            "symbols": ["unknown", "red", "blue", "green", "yellow"],
+            "default": "unknown"
+          }
+        }
+      ]
+    }
+  reader: |
+    { "namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+        { "name": "name",
+          "type": "string" },
+        { "name": "favorite_color", 
+          "type": {
+            "type": "enum",
+            "name": "ColorEnum",
+            "symbols": ["unknown", "red", "blue", "green"],
+            "default": "unknown"
+          }
+        }
+      ]
+    }
