@@ -1,0 +1,42 @@
+description: Add enum value to reader
+check:
+  compatibility: "FULL"
+  compatible: true
+schema:
+  type: "AVRO"
+  writer: |
+    { "namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+        { "name": "name",
+          "type": "string" },
+        { "name": "favorite_color",
+          "default": "unknown", 
+          "type": {
+            "type": "enum",
+            "name": "ColorEnum",
+            "symbols": ["unknown", "red", "blue", "green"],
+            "default": "unknown"
+          }
+        }
+      ]
+    }
+  reader: |
+    { "namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+        { "name": "name",
+          "type": "string" },
+        { "name": "favorite_color", 
+          "default": "unknown", 
+          "type": {
+            "type": "enum",
+            "name": "ColorEnum",
+            "symbols": ["unknown", "red", "blue", "green", "yellow"],
+            "default": "unknown"
+          }
+        }
+      ]
+    }
