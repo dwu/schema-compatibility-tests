@@ -4,7 +4,7 @@ check:
   compatible: true
 schema:
   type: "AVRO"
-  writer: |
+  oldschema: |
     { "namespace": "example.avro",
       "type": "record",
       "name": "User",
@@ -22,7 +22,7 @@ schema:
         }
       ]
     }
-  reader: |
+  newschema: |
     { "namespace": "example.avro",
       "type": "record",
       "name": "User",
