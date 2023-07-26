@@ -1,4 +1,4 @@
-description: Change long to int
+description: Change int to long
 check:
   compatibility: "BACKWARD"
   compatible: true

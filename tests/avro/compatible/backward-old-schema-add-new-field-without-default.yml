@@ -1,4 +1,4 @@
-description: Add a new field to reader with default
+description: Add a new field to writer without default
 check:
   compatibility: "BACKWARD"
   compatible: true
@@ -11,7 +11,8 @@ schema:
       "fields": [
         {"name": "name", "type": "string"},
         {"name": "favorite_number", "type": ["int", "null"]},
-        {"name": "favorite_color", "type": ["string", "null"]}
+        {"name": "favorite_color", "type": ["string", "null"]},
+        {"name": "new_field", "type": "string"}
       ]
     }
   newschema: |
@@ -21,7 +22,6 @@ schema:
       "fields": [
         {"name": "name", "type": "string"},
         {"name": "favorite_number", "type": ["int", "null"]},
-        {"name": "favorite_color", "type": ["string", "null"]},
-        {"name": "new_field", "type": "string", "default": "some default value"}
+        {"name": "favorite_color", "type": ["string", "null"]}
       ]
     }

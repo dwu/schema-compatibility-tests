@@ -1,4 +1,4 @@
-description: Add enum value to reader without default
+description: Add enum value to new schema without default
 check:
   compatibility: "BACKWARD"
   compatible: true
