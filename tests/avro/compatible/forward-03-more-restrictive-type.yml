@@ -1,0 +1,24 @@
+description: More restrictive type (long to int)
+check:
+  compatibility: "FORWARD"
+  compatible: true
+schema:
+  type: "AVRO"
+  oldschema: |
+    {"namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+          {"name": "name", "type": "string"},
+          {"name": "age", "type": "long"}
+      ]
+    }
+  newschema: |
+    {"namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+          {"name": "name", "type": "string"},
+          {"name": "age", "type": "int"}
+      ]
+    }

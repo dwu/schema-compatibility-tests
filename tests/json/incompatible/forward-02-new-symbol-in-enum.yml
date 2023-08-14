@@ -1,0 +1,22 @@
+description: New symbol in enum
+check:
+  compatibility: "FORWARD"
+  compatible: false
+schema:
+  type: "JSON"
+  oldschema: |
+    {"type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "pref": {"type": "string", "enum": ["a", "b", "x"]}
+      },
+      "required": ["name"]
+    }
+  newschema: |
+    {"type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "pref": {"type": "string", "enum": ["a", "b", "c", "x"]}
+      },
+      "required": ["name"]
+    }

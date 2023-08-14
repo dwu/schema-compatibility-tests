@@ -1,0 +1,25 @@
+description: Remove optional field
+check:
+  compatibility: "FORWARD"
+  compatible: true
+schema:
+  type: "AVRO"
+  oldschema: |
+    {"namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+          {"name": "name", "type": "string"},
+          {"name": "first_name",
+            "type": ["string", "null"],
+            "default": null}
+      ]
+    }
+  newschema: |
+    {"namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+          {"name": "name", "type": "string"}
+      ]
+    }

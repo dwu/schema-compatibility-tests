@@ -1,0 +1,24 @@
+description: Change field order
+check:
+  compatibility: "FORWARD"
+  compatible: true
+schema:
+  type: "AVRO"
+  oldschema: |
+    {"namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+          {"name": "first_name", "type": "string"},
+          {"name": "name", "type": "string"}
+      ]
+    }
+  newschema: |
+    {"namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+          {"name": "name", "type": "string"},
+          {"name": "first_name", "type": "string"}
+      ]
+    }

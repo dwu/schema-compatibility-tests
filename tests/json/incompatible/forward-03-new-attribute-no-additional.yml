@@ -1,0 +1,23 @@
+description: Add new attribute (additionalProperties=false)
+check:
+  compatibility: "FORWARD"
+  compatible: false
+schema:
+  type: "JSON"
+  oldschema: |
+    {"type": "object",
+      "properties": {
+        "name": {"type": "string"}
+      },
+      "required": ["name"],
+      "additionalProperties": false
+    }
+  newschema: |
+    {"type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "vorname": {"type": "string"}
+      },
+      "required": ["name"],
+      "additionalProperties": false
+    }

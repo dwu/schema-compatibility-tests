@@ -1,0 +1,28 @@
+description: More restrictive type (Fixed(30) -> Fixed(20))
+check:
+  compatibility: "FORWARD"
+  compatible: false
+schema:
+  type: "AVRO"
+  oldschema: |
+    {"namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+          {"name": "name", "type": "string"},
+          {"name": "checksum", "type": {
+            "name": "Checksum",
+            "type": "fixed", "size": 30}}
+      ]
+    }
+  newschema: |
+    {"namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+          {"name": "name", "type": "string"},
+          {"name": "checksum", "type": {
+            "name": "Checksum",
+            "type": "fixed", "size": 20}}
+      ]
+    }

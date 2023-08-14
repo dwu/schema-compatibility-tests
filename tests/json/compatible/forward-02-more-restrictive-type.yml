@@ -1,0 +1,24 @@
+description: More restrictive type (reduced maximum)
+check:
+  compatibility: "FORWARD"
+  compatible: true
+schema:
+  type: "JSON"
+  oldschema: |
+    {"type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "vorname": {"type": "string"},
+        "alter": {"type": "number", "maximum": 1000}
+      },
+      "required": ["name"]
+    }
+  newschema: |
+    {"type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "vorname": {"type": "string"},
+        "alter": {"type": "number", "maximum": 100}
+      },
+      "required": ["name"]
+    }

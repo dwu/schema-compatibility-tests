@@ -1,0 +1,31 @@
+description: New symbol in union
+check:
+  compatibility: "FORWARD"
+  compatible: true
+schema:
+  type: "JSON"
+  oldschema: |
+    {"type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "first_name": {"type": "string"},
+        "favorite_color": {
+          "oneOf": [
+            {"title": "custom", "type": "string"},
+            {"title": "predefined",  "type": "string", "enum": ["red", "green", "blue"]}
+          ]
+        }
+      }
+    }
+  newschema: |
+    {"type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "first_name": {"type": "string"},
+        "favorite_color": {
+          "oneOf": [
+            {"title": "custom", "type": "string"}
+          ]
+        }
+      }
+    }

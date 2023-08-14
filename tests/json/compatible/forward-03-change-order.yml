@@ -1,0 +1,22 @@
+description: Change field order
+check:
+  compatibility: "FORWARD"
+  compatible: true
+schema:
+  type: "JSON"
+  oldschema: |
+    {"type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "first_name": {"type": "string"}
+      },
+      "required": ["name"]
+    }
+  newschema: |
+    {"type": "object",
+      "properties": {
+        "first_name": {"type": "string"},
+        "name": {"type": "string"}
+      },
+      "required": ["name"]
+    }

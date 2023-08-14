@@ -1,0 +1,24 @@
+description: Change namespace
+check:
+  compatibility: "FORWARD"
+  compatible: true
+schema:
+  type: "AVRO"
+  oldschema: |
+    {"namespace": "example.avro.v1",
+      "type": "record",
+      "name": "User",
+      "fields": [
+          {"name": "name", "type": "string"},
+          {"name": "first_name", "type": "string"}
+      ]
+    }
+  newschema: |
+    {"namespace": "example.avro.v2",
+      "type": "record",
+      "name": "User",
+      "fields": [
+          {"name": "name", "type": "string"},
+          {"name": "first_name", "type": "string"}
+      ]
+    }

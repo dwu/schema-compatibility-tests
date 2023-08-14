@@ -1,0 +1,34 @@
+description: New symbol in enum
+check:
+  compatibility: "FORWARD"
+  compatible: true
+schema:
+  type: "AVRO"
+  oldschema: |
+    {"namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "age", "type": "long"},
+        {"name": "pref", "type": {
+          "type": "enum",
+          "name": "Pref",
+          "symbols": ["a", "b", "x"],
+          "default": "x"}}
+      ]
+    }
+  newschema: |
+    {"namespace": "example.avro",
+      "type": "record",
+      "name": "User",
+      "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "age", "type": "int"},
+        {"name": "pref", "type": {
+          "type": "enum",
+          "name": "Pref",
+          "symbols": ["a", "b", "c", "x"],
+          "default": "x"}}
+      ]
+    }
